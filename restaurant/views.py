@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, routers, permissions
+from rest_framework import viewsets, routers
 from rest_framework import generics
 from rest_framework.response import Response
 from .models import MenuItem, Booking  # Import your MenuItem model
@@ -24,7 +24,7 @@ class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView):
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 
 # Create a router and register the viewset with URL routes
